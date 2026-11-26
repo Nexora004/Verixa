@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>QuantumVista v9 | Exclusive Rewards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at 80% 10%, #0a0c1a, #02040f);
+      font-family: 'Inter', system-ui, sans-serif;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+    }
+
+    .main-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .content-area {
+      flex: 3;
+      min-width: 250px;
+    }
+
+    .level-sidebar {
+      flex: 0.9;
+      min-width: 200px;
+      position: sticky;
+      top: 2rem;
+      align-self: flex-start;
+      background: rgba(15, 20, 35, 0.75);
+      backdrop-filter: blur(16px);
+      border-radius: 2rem;
+      padding: 1.5rem 1rem;
+      border: 1px solid rgba(251, 146, 60, 0.5);
+      height: fit-content;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .level-sidebar h3 {
+      color: #ffd6a5;
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .level-sidebar h3 i {
+      color: #fb923c;
+    }
+
+    .triggers-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .level-btn {
+      background: linear-gradient(105deg, #1a1e32, #11152a);
+      border: 1px solid #fb923c;
+      border-radius: 60px;
+      padding: 8px 0;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: #ffdead;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .level-btn i {
+      font-size: 0.75rem;
+      color: #fb923c;
+    }
+
+    .level-btn:hover {
+      background: linear-gradient(105deg, #2a2f4a, #1a1f38);
+      border-color: #f97316;
+      transform: translateY(-2px);
+    }
+
+    .level-btn.active {
+      background: linear-gradient(105deg, #ea580c, #c2410c);
+      border-color: #fdba74;
+      color: white;
+    }
+
+    .level-btn.active i {
+      color: #fff0e0;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      cursor: pointer;
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fb923c, #f97316, #fdba74);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      justify-content: center;
+    }
+
+    .hero h1 i {
+      background: none;
+      -webkit-text-fill-color: #fb923c;
+      font-size: 2rem;
+    }
+
+    @media (max-width: 550px) {
+      .hero h1 {
+        font-size: 1.4rem;
+        gap: 8px;
+      }
+      .hero h1 i {
+        font-size: 1.3rem;
+      }
+    }
+    @media (max-width: 400px) {
+      .hero h1 {
+        font-size: 1.2rem;
+        gap: 6px;
+      }
+      .hero h1 i {
+        font-size: 1.1rem;
+      }
+    }
+
+    .stats-card {
+      background: rgba(10, 14, 30, 0.7);
+      backdrop-filter: blur(12px);
+      border-radius: 2rem;
+      padding: 1rem 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 2rem;
+      margin-bottom: 0;
+      border: 1px solid rgba(249, 115, 22, 0.4);
+    }
+
+    .total-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fcd9b6;
+      font-weight: 600;
+    }
+
+    .total-box i {
+      font-size: 2rem;
+      color: #fb923c;
+    }
+
+    .total-number {
+      background: #0a0e20;
+      padding: 6px 20px;
+      border-radius: 50px;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fb923c;
+      font-family: monospace;
+      letter-spacing: 2px;
+      border: 1px solid #f97316;
+    }
+
+    .legend {
+      display: flex;
+      gap: 20px;
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #2d3a5e;
+    }
+
+    .dot.active {
+      background: #10b981;
+      box-shadow: 0 0 6px #34d399;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 1.5rem 0 1rem 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid rgba(249, 115, 22, 0.5);
+    }
+
+    .section-title i {
+      font-size: 1.5rem;
+      color: #fb923c;
+    }
+
+    .section-title h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fee3c0;
+    }
+
+    .badge {
+      background: #f97316;
+      padding: 2px 12px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #0a0a1a;
+    }
+
+    .btn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+      max-height: 50vh;
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    .btn-grid::-webkit-scrollbar {
+      width: 6px;
+    }
+    .btn-grid::-webkit-scrollbar-track {
+      background: #1e253e;
+      border-radius: 10px;
+    }
+    .btn-grid::-webkit-scrollbar-thumb {
+      background: #fb923c;
+      border-radius: 10px;
+    }
+
+    .offer-btn {
+      background: linear-gradient(105deg, #13182e, #0c1022);
+      border: 1px solid #3b3f66;
+      border-radius: 60px;
+      padding: 12px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      color: #e2e8f0;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .offer-btn:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(105deg, #1c2340, #12172e);
+      border-color: #fb923c;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+    }
+
+    .offer-btn.disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      pointer-events: none;
+      background: linear-gradient(105deg, #1a2a1a, #0f1f0f);
+      border-color: #4a6a4a;
+      transform: none;
+    }
+
+    .btn-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow: hidden;
+    }
+    .btn-left i {
+      font-size: 1.2rem;
+      color: #fb923c;
+      min-width: 28px;
+      text-align: center;
+    }
+    .btn-left span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .click-count {
+      background: #00000055;
+      border-radius: 40px;
+      padding: 3px 12px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #fdba74;
+      border: 0.5px solid #fb923c;
+      font-family: monospace;
+    }
+    .offer-btn.clicked {
+      background: linear-gradient(105deg, #0f3b2a, #0a261c);
+      border-color: #10b981;
+    }
+    .offer-btn.clicked .click-count {
+      background: #064e3b;
+      color: #facc15;
+    }
+
+    .reset-btn {
+      background: rgba(249, 115, 22, 0.15);
+      border: 1px solid #f97316;
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #fdba74;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .reset-btn:hover {
+      background: #f9731630;
+      color: #ffffff;
+      border-color: #fb923c;
+    }
+
+    footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    @media (max-width: 850px) {
+      .hero h1 { cursor: pointer; }
+      .main-container { flex-direction: column; }
+      .level-sidebar { display: none; }
+      .mobile-tier-bar {
+        display: block;
+        background: rgba(15, 20, 35, 0.85);
+        backdrop-filter: blur(16px);
+        border-radius: 1.5rem;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(251, 146, 60, 0.5);
+      }
+      .mobile-tier-bar h3 {
+        color: #ffd6a5;
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .mobile-triggers {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+      }
+      .mobile-tier-btn {
+        background: linear-gradient(105deg, #1a1e32, #11152a);
+        border: 1px solid #fb923c;
+        border-radius: 60px;
+        padding: 6px 0;
+        font-weight: 700;
+        font-size: 0.65rem;
+        color: #ffdead;
+        cursor: pointer;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+      }
+      .mobile-tier-btn i { font-size: 0.65rem; color: #fb923c; }
+      .mobile-tier-btn.active {
+        background: linear-gradient(105deg, #ea580c, #c2410c);
+        border-color: #fdba74;
+        color: white;
+      }
+      .btn-grid { max-height: 45vh; }
+      .stats-card { margin-top: 1.5rem; }
+    }
+    @media (min-width: 851px) {
+      .mobile-tier-bar { display: none; }
+    }
+
+    /* Fixed floating reset-to-top button */
+    .floating-reset-btn {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 99999;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 16px;
+      border: 1px solid rgba(253, 186, 116, 0.85);
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ea580c, #9a3412);
+      color: #ffffff;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 14px rgba(249, 115, 22, 0.28);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .floating-reset-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), 0 0 18px rgba(249, 115, 22, 0.38);
+    }
+    .floating-reset-btn:active {
+      transform: scale(0.96);
+    }
+    .floating-reset-btn i {
+      font-size: 1rem;
+    }
+
+    /* Fixed floating navigation toggle */
+    .floating-nav-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 99999;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 16px;
+      border: 1px solid rgba(253, 186, 116, 0.85);
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ea580c, #9a3412);
+      color: #ffffff;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 14px rgba(249, 115, 22, 0.28);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .floating-nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), 0 0 18px rgba(249, 115, 22, 0.38);
+    }
+    .floating-nav-btn:active {
+      transform: scale(0.96);
+    }
+    .floating-nav-btn i {
+      font-size: 1rem;
+    }
+    @media (max-width: 550px) {
+      .floating-reset-btn {
+        top: 10px;
+        left: 10px;
+        min-height: 40px;
+        padding: 0 12px;
+        font-size: 0.72rem;
+      }
+      .floating-nav-btn {
+        top: 10px;
+        right: 10px;
+        min-height: 40px;
+        padding: 0 12px;
+        font-size: 0.72rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<button type="button" class="floating-reset-btn" id="floatingResetBtn"
+        aria-label="Show triggers" title="Trigger">
+  <i class="fas fa-layer-group" aria-hidden="true"></i>
+  <span>Trigger</span>
+</button>
+
+<button type="button" class="floating-nav-btn" id="floatingNavBtn"
+        aria-label="Show offers" title="Offer">
+  <i class="fas fa-gift" aria-hidden="true"></i>
+  <span>Offer</span>
+</button>
+
+<div class="main-container">
+  <div class="content-area">
+    <div class="hero">
+      <h1 role="button" tabindex="0" aria-label="Show offers in the center"><i class="fas fa-crown"></i> QUANTUMVISTA V9 <i class="fas fa-gem"></i></h1>
+    </div>
+
+    <div class="mobile-tier-bar" id="mobileTierBar">
+      <h3><i class="fas fa-layer-group"></i> Choose Tier</h3>
+      <div class="mobile-triggers" id="mobileTriggers"></div>
+    </div>
+
+    <div class="section-title" id="dynamicSectionTitle">
+      <i class="fas fa-layer-group"></i>
+      <h2 id="levelName">Tier 1 · Starter Pack</h2>
+      <div class="badge" id="levelBadge">3 Offers</div>
+    </div>
+    <div id="offersGrid" class="btn-grid"></div>
+
+    <div class="stats-card">
+      <div class="total-box">
+        <i class="fas fa-chart-line"></i>
+        <span>Total Clicks</span>
+        <div class="total-number" id="totalClicks">0</div>
+      </div>
+      <div class="legend">
+        <span><i class="dot"></i> Pending</span>
+        <span><i class="dot active"></i> Claimed</span>
+      </div>
+    </div>
+
+    <footer>
+      <span><i class="far fa-clock"></i> 100 Live Rewards · 34 Exclusive Tiers · Click & Collect</span>
+      <div class="reset-btn" id="resetAllBtn"><i class="fas fa-trash-alt"></i> Reset Counters</div>
+    </footer>
+  </div>
+
+  <div class="level-sidebar">
+    <h3><i class="fas fa-layer-group"></i> Choose Tier</h3>
+    <div class="triggers-grid" id="desktopTriggers"></div>
+  </div>
+</div>
+
+<script>
+  // ==================== 100 LINKS ====================
+  const ALL_LINKS = [
+    "https://auctionr.org/4/32e39e69e2ed0e45e77d901e4916985b",
+    "https://auctionr.org/4/e84254010bdfb418fc269734d255a508",
+    "https://auctionr.org/4/c22e683638e17b1cfc74574e0abf4fb1",
+    "https://auctionr.org/4/e9290f7c4cddd4286a3f82189b9e71af",
+    "https://auctionr.org/4/49a22cb688af0fe0f75d6d9acfc23998",
+    "https://auctionr.org/4/b9d745976cc67e0efac728f88fa89ea6",
+    "https://auctionr.org/4/373a215e3c5a61d778f5498e8190f848",
+    "https://auctionr.org/4/a6153944237a74f0946cc8be58555f0b",
+    "https://auctionr.org/4/860e816fb5d92ff58770483877f239cc",
+    "https://auctionr.org/4/4a293cc1cd119edbfd561d5fda2db679",
+    "https://auctionr.org/4/9e340a7b8fafd7c96681e119a59fc0e0",
+    "https://auctionr.org/4/faaa84d27c42f27589136f934a92c66a",
+    "https://auctionr.org/4/9d849f638cd691bad13a8e73354de790",
+    "https://auctionr.org/4/0b6a9ac2db069ac5dc49e05ed2d9c8c0",
+    "https://auctionr.org/4/9de5c9b0151d198588acf100921430f5",
+    "https://auctionr.org/4/9880150a1dac66080527f1d22081aa84",
+    "https://auctionr.org/4/4d08da071bbcda854f6e3c751a8358d6",
+    "https://auctionr.org/4/bb6e43e5e92960329a11576d2eff39a8",
+    "https://auctionr.org/4/3ebd50607e07a3f28a9877fcbff9e7cd",
+    "https://auctionr.org/4/699869a5651c344b50349c67e85512ce",
+    "https://auctionr.org/4/9b0472418a885c7837ef0a0f8f7b5db1",
+    "https://auctionr.org/4/9e4df0d59c4519bd01bedad64d11536c",
+    "https://auctionr.org/4/632c27a5ad00cbe1f915e3645fd61f52",
+    "https://auctionr.org/4/36ba6f9c1cef6c46f8fc0c40e6474a89",
+    "https://auctionr.org/4/e4da8d182f32505b6616e256d8319383",
+    "https://auctionr.org/4/d691cf0ba26530bfffc8b421d73d59fd",
+    "https://auctionr.org/4/ba0c3b14b708a6d7c7f0ab29d80c64e6",
+    "https://auctionr.org/4/228b8d9644edf642707190c4a1aa40b9",
+    "https://auctionr.org/4/dd2f6fa2d4e5de4d4a27cecccd7d95c5",
+    "https://auctionr.org/4/340b5d1da4e4418988b2df1e19dace91",
+    "https://auctionr.org/4/d5dabd6be9923411a616fec2437e7312",
+    "https://auctionr.org/4/60a9e4cb914b8d89f98a586f06d0570d",
+    "https://auctionr.org/4/f514cc66378153a1d7fc639c261aaf0f",
+    "https://auctionr.org/4/ed14aa2977b0a566b9477095fec19244",
+    "https://auctionr.org/4/8e0afe30e15093ac5b917f01426142b6",
+    "https://auctionr.org/4/6ecaf28a3a51e8a5b544a5cb04d4b7c3",
+    "https://auctionr.org/4/aac338ebb1b52da1c9d46034dbe70011",
+    "https://auctionr.org/4/0eb938d59aaf5a9a156c8d07d36a9e0a",
+    "https://auctionr.org/4/776791e57e3bef3dd0114d4d7af3afa0",
+    "https://auctionr.org/4/90e7d87868315c31c98a032fc005881b",
+    "https://auctionr.org/4/1e4f2928490fb70edd6769faeeaa91b0",
+    "https://auctionr.org/4/28347a7274ce331880975512458dc86e",
+    "https://auctionr.org/4/2fa7bbfa40d79434d931db9e6a06bc0e",
+    "https://auctionr.org/4/fce92d1e92edad140b5fdee681f694ab",
+    "https://auctionr.org/4/9db17a430da1dc990b44331028d3dca1",
+    "https://auctionr.org/4/3de78771cf426dc5b3a0d65dfb9f5030",
+    "https://auctionr.org/4/07a0a012276fa1601c3bdc189099a6b1",
+    "https://auctionr.org/4/13922c90f3f1332c0ef86bdb00dccd39",
+    "https://auctionr.org/4/e081603bdae4eaddced4de3562d6e49f",
+    "https://auctionr.org/4/f380c328afd05b9799fbc5f5b994d021",
+    "https://auctionr.org/4/c48b98bbe21f95892ad6bd598e33ddf8",
+    "https://auctionr.org/4/47ef31e3a580462648cf8c797d9cabbf",
+    "https://auctionr.org/4/9edc9a005371fd375bbf3c0e96c52f3f",
+    "https://auctionr.org/4/614726b5c5e208853a36931479bc66af",
+    "https://auctionr.org/4/9187652f875238656f696d8c2a224594",
+    "https://auctionr.org/4/9f6094c749ef38f5fe2f84cd1c5fb59a",
+    "https://auctionr.org/4/d6260663a157103f78760b2afe43e1b4",
+    "https://auctionr.org/4/5497a4ee8ec8a68b86d379d68cb09324",
+    "https://auctionr.org/4/1fa838486ec256e88f10840f679e017a",
+    "https://auctionr.org/4/d0085d2f32490545b22007dcfc57c186",
+    "https://auctionr.org/4/a7bc0f2278fee677b676f1d1c06daaa2",
+    "https://auctionr.org/4/dbf402babb739827c9d8421fe212fea5",
+    "https://auctionr.org/4/a6e848816c0287eba70556091e5457bb",
+    "https://auctionr.org/4/48685f536880d856049ee7173241cfb9",
+    "https://auctionr.org/4/b36c2cdb8baaf103958b2a473097625c",
+    "https://auctionr.org/4/3ab890ab819046f1e4ae6d2f7c6bf394",
+    "https://auctionr.org/4/fcc3da34aa349a7bba850668e23894cd",
+    "https://auctionr.org/4/1f44b55e4f9aeb911d7143c82d07039d",
+    "https://auctionr.org/4/8aaf4dd3aac841ed9daa6541bddec5f5",
+    "https://auctionr.org/4/8e16a6d984399e949754a22738e538f8",
+    "https://auctionr.org/4/5f8275a3be1a38c3d38417dbb4d99070",
+    "https://auctionr.org/4/3ba4e6c8fd8235f6642bde3e1eb51a34",
+    "https://auctionr.org/4/3c7259394db9f21e7c3f4dc1c168bccf",
+    "https://auctionr.org/4/e38904880b4781529b34ef74f4f21ee0",
+    "https://auctionr.org/4/9da767c0aa1b5149449ea0a58dde4305",
+    "https://auctionr.org/4/e9680cdc0e3de2e450d76622793ec7ba",
+    "https://auctionr.org/4/8af82752fdce04e6fcc60061f43e2655",
+    "https://auctionr.org/4/8e9687f1df472353e99a7b4dcd1989b0",
+    "https://auctionr.org/4/e8612dd91d24917a61b2d24b2f807ec7",
+    "https://auctionr.org/4/fbad18ec0692c4efc935bfa56899f91e",
+    "https://auctionr.org/4/b62eb23a4d44bfa7643963d987cf7ff0",
+    "https://auctionr.org/4/4db43d5b0dc5a093ab70f5d9af8a7158",
+    "https://auctionr.org/4/29b765db4de84a90597052120074994b",
+    "https://auctionr.org/4/1b1cd5578d12760d62f4000b9075e72c",
+    "https://auctionr.org/4/abb33910c1adcbfa5c58ca1e0e521365",
+    "https://auctionr.org/4/32113aaceac70bdf384fe82dfcec0055",
+    "https://auctionr.org/4/8a7029acb136aad2eb2802b483234caa",
+    "https://auctionr.org/4/4aed76b9568c49ef9c8853e0f02f0768",
+    "https://auctionr.org/4/17407b18dbe267cc42f44e5c300ec2b6",
+    "https://auctionr.org/4/f0373bf19ea221e2a73dfbc979161d4f",
+    "https://auctionr.org/4/1a6025541491ff1420bf9ed8ed0ac446",
+    "https://auctionr.org/4/4e48bc12e2c6254a7ac92ac2228b8668",
+    "https://auctionr.org/4/f54298996cdb95f1e26d017000ce7a71",
+    "https://auctionr.org/4/7befdeb4dd022720529c3f959774119e",
+    "https://auctionr.org/4/7b519255b394212e2d3c9cd344bec53e",
+    "https://auctionr.org/4/62be42aa084acfec5f6d3556b6958f92",
+    "https://auctionr.org/4/2d134bd54225c8e4de85be0116588514",
+    "https://auctionr.org/4/d96aae99c6fe12a6e8ec00ea5ea48eaa",
+    "https://auctionr.org/4/3efcb82261d4688265449c18dca0e5ad",
+    "https://auctionr.org/4/c95d203604c711c20f73ed4dfb37a58d"
+  ];
+
+  // ========== USER-FRIENDLY & AD-COMPLIANT OFFER NAMES ==========
+  const OFFER_NAMES = [
+    "🎠 Carousel Bonus Spin",
+    "🌙 Night Owl Reward",
+    "🏖️ Beach Day Bundle",
+    "🃏 Gentle Wild Card",
+    "🎨 Kind Creator Kit",
+    "💡 Bright Daily Deal",
+    "🛡️ Cozy Secure Plus",
+    "⚙️ Simple Utility Perk",
+    "🎡 Ferris Wheel Token",
+    "💎 Easy Reward Gem",
+    "🎲 Simple Dice Reward",
+    "🌐 Gentle Web Access",
+    "🍀 Lucky Spot Token",
+    "🎈 Soft Celebration Pack",
+    "🕶️ Quiet Stealth Perk",
+    "🔔 Soft Flash Alert",
+    "🌟 Daily Glow Reward",
+    "📱 Light Mobile Bonus",
+    "🌻 Sunflower Gift Pack",
+    "❄️ Winter Perk Pack",
+    "🌸 Floral Reward Bundle",
+    "🔑 Gentle Vault Key",
+    "📚 Warm Insider Pass",
+    "🧭 Kind Navigator Bonus",
+    "⭐ Pure Bonus Token",
+    "🌿 Pure Lucky Clover",
+    "🐝 Busy Bee Perk",
+    "🦋 Butterfly Bonus",
+    "⚡ Quick Access Pass",
+    "🎪 Carnival Reward Ticket",
+    "🔥 Warm Welcome Pack",
+    "🧩 Friendly Mystery Tile",
+    "🌌 Starry Night Gift",
+    "🕹️ Casual Gamer Perk",
+    "📸 Easy Snapshot",
+    "📀 Basic Digital Pack",
+    "🎯 Clear Bonus Target",
+    "🎧 Calm Audio Reward",
+    "🍂 Autumn Bonus Drop",
+    "🌈 Colorful Daily Gift",
+    "🎢 Coaster Perk Pass",
+    "🌊 Calm Wave Voucher",
+    "🏆 Friendly Milestone",
+    "🎵 Peaceful Sound Pack",
+    "🏕️ Campfire Bonus Kit",
+    "☀️ Summer Surprise Deal",
+    "⛰️ Mountain View Reward",
+    "🚀 Smooth Boost Voucher",
+    "🎆 Firework Surprise Pack",
+    "🎁 Simple Bonus Pack",
+    "🎡 Ferris Wheel Token",
+    "📱 Light Mobile Bonus",
+    "🔑 Gentle Vault Key",
+    "🌊 Calm Wave Voucher",
+    "⚙️ Simple Utility Perk",
+    "🍂 Autumn Bonus Drop",
+    "🎁 Simple Bonus Pack",
+    "🔔 Soft Flash Alert",
+    "🔑 Gentle Vault Key",
+    "🎲 Simple Dice Reward",
+    "🃏 Gentle Wild Card",
+    "📀 Basic Digital Pack",
+    "⛰️ Mountain View Reward",
+    "🎧 Calm Audio Reward",
+    "🎨 Kind Creator Kit",
+    "🕹️ Casual Gamer Perk",
+    "⚡ Quick Access Pass",
+    "🌈 Colorful Daily Gift",
+    "🌟 Daily Glow Reward",
+    "🎲 Simple Dice Reward",
+    "🎠 Carousel Bonus Spin",
+    "🎪 Carnival Reward Ticket",
+    "🌊 Calm Wave Voucher",
+    "🚀 Smooth Boost Voucher",
+    "🎆 Firework Surprise Pack",
+    "🌐 Gentle Web Access",
+    "🎢 Coaster Perk Pass",
+    "🌙 Night Owl Reward",
+    "🔑 Gentle Vault Key",
+    "🌌 Starry Night Gift",
+    "🛡️ Cozy Secure Plus",
+    "🧩 Friendly Mystery Tile",
+    "🏕️ Campfire Bonus Kit",
+    "🦋 Butterfly Bonus",
+    "⚡ Quick Access Pass",
+    "🌌 Starry Night Gift",
+    "🎆 Firework Surprise Pack",
+    "🎆 Firework Surprise Pack",
+    "🔔 Soft Flash Alert",
+    "☀️ Summer Surprise Deal",
+    "⭐ Pure Bonus Token",
+    "⚡ Quick Access Pass",
+    "📱 Light Mobile Bonus",
+    "🌿 Pure Lucky Clover",
+    "🕶️ Quiet Stealth Perk",
+    "📸 Easy Snapshot",
+    "🎢 Coaster Perk Pass",
+    "🧩 Friendly Mystery Tile",
+    "🎲 Simple Dice Reward",
+    "☀️ Summer Surprise Deal"
+  ];
+
+  // Matching icons for each offer
+  const OFFER_ICONS = [
+    "gift",
+    "database",
+    "tree",
+    "bell",
+    "shield-alt",
+    "compass",
+    "palette",
+    "apple-alt",
+    "hamburger",
+    "trophy",
+    "moon",
+    "rocket",
+    "fire",
+    "dice-d6",
+    "lightbulb",
+    "puzzle-piece",
+    "beer",
+    "globe",
+    "leaf",
+    "cogs",
+    "gem",
+    "carrot",
+    "wine-glass",
+    "bullseye",
+    "star",
+    "key",
+    "bolt",
+    "cocktail",
+    "mobile-alt",
+    "cookie",
+    "leaf",
+    "star-of-life",
+    "pizza-slice",
+    "pepper-hot",
+    "ice-cream",
+    "music",
+    "sun",
+    "cloud",
+    "coffee",
+    "headphones",
+    "book",
+    "gamepad",
+    "sunglasses",
+    "snowflake",
+    "seedling",
+    "camera",
+    "crown",
+    "balloon",
+    "umbrella",
+    "rainbow",
+    "apple-alt",
+    "pizza-slice",
+    "dice-d6",
+    "cogs",
+    "crown",
+    "cloud",
+    "sun",
+    "bullseye",
+    "sun",
+    "dice-d6",
+    "tree",
+    "snowflake",
+    "leaf",
+    "shield-alt",
+    "sunglasses",
+    "palette",
+    "palette",
+    "bullseye",
+    "moon",
+    "key",
+    "rocket",
+    "mobile-alt",
+    "snowflake",
+    "gamepad",
+    "apple-alt",
+    "shield-alt",
+    "key",
+    "gem",
+    "snowflake",
+    "moon",
+    "cloud",
+    "cloud",
+    "leaf",
+    "seedling",
+    "mobile-alt",
+    "sunglasses",
+    "lightbulb",
+    "hamburger",
+    "book",
+    "snowflake",
+    "bullseye",
+    "key",
+    "camera",
+    "star-of-life",
+    "leaf",
+    "gem",
+    "cloud",
+    "pizza-slice",
+    "cloud",
+    "cogs"
+  ];
+
+  // Shuffle array utility (Fisher-Yates) for unique order per user
+  function shuffleArray(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  // Get persistent shuffled order for this user
+  function getShuffledIndices() {
+    const ORDER_KEY = "vaultShuffledOrderV3";
+    const saved = localStorage.getItem(ORDER_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed.length === 100) return parsed;
+    }
+    const indices = Array.from({ length: 100 }, (_, i) => i);
+    shuffleArray(indices);
+    localStorage.setItem(ORDER_KEY, JSON.stringify(indices));
+    return indices;
+  }
+
+  const shuffledOrder = getShuffledIndices();
+
+  // Build tier offers using shuffled order (3 per tier)
+  const TIER_OFFERS = {};
+  for (let tier = 1; tier <= 34; tier++) {
+    TIER_OFFERS[tier] = [];
+    for (let j = 0; j < 3; j++) {
+      const globalIdx = shuffledOrder[(tier - 1) * 3 + j];
+      if (globalIdx === undefined) continue;
+      TIER_OFFERS[tier].push({
+        name: OFFER_NAMES[globalIdx % OFFER_NAMES.length],
+        icon: OFFER_ICONS[globalIdx % OFFER_ICONS.length],
+        link: ALL_LINKS[globalIdx],
+        originalIndex: globalIdx
+      });
+    }
+  }
+
+  const TOTAL_OFFERS = 100;
+  let clickCounts = new Array(TOTAL_OFFERS).fill(0);
+  let claimedStatus = new Array(TOTAL_OFFERS).fill(false);
+  const STORAGE_KEY = "vaultClicksV3";
+  const CLAIMED_KEY = "vaultClaimedV3";
+
+  function loadCounts() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      try {
+        let arr = JSON.parse(saved);
+        if (arr.length === TOTAL_OFFERS) clickCounts = arr;
+      } catch(e) {}
+    }
+    const savedClaimed = localStorage.getItem(CLAIMED_KEY);
+    if (savedClaimed) {
+      try {
+        let arr = JSON.parse(savedClaimed);
+        if (arr.length === TOTAL_OFFERS) claimedStatus = arr;
+      } catch(e) {}
+    }
+  }
+  function saveCounts() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(clickCounts));
+    localStorage.setItem(CLAIMED_KEY, JSON.stringify(claimedStatus));
+  }
+  function updateTotalDisplay() {
+    const total = clickCounts.reduce((a,b)=>a+b,0);
+    document.getElementById("totalClicks").innerText = total;
+  }
+
+  let currentTier = 1;
+
+  function renderCurrentTier() {
+    const grid = document.getElementById("offersGrid");
+    grid.innerHTML = "";
+    const offers = TIER_OFFERS[currentTier];
+    if (!offers) return;
+    const tierNames = ["Starter Pack", "Bronze Tier", "Silver Tier", "Gold Tier", "Platinum Tier", "Emerald Tier", "Ruby Tier", "Sapphire Tier", "Diamond Tier", "Ultimate Vault"];
+    const levelTitle = document.getElementById("levelName");
+    const levelBadge = document.getElementById("levelBadge");
+    levelTitle.innerText = `Tier ${currentTier} · ${tierNames[currentTier-1] || "Tier " + currentTier}`;
+    levelBadge.innerText = offers.length + " Offers";
+
+    offers.forEach((offer) => {
+      const globalIdx = offer.originalIndex;
+      const count = clickCounts[globalIdx];
+      const isClaimed = claimedStatus[globalIdx];
+      const hasClick = count > 0;
+
+      const btn = document.createElement("a");
+      if (!isClaimed) {
+        btn.href = offer.link;
+        btn.target = "_blank";
+        btn.rel = "noopener noreferrer";
+      } else {
+        btn.href = "javascript:void(0);";
+      }
+      btn.className = `offer-btn ${hasClick ? "clicked" : ""} ${isClaimed ? "disabled" : ""}`;
+      btn.setAttribute("data-global", globalIdx);
+
+      btn.innerHTML = `<div class="btn-left"><i class="fas fa-${offer.icon}"></i><span>${offer.name}</span></div><div class="click-count">${count}</div>`;
+
+      if (!isClaimed) {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          if (claimedStatus[globalIdx]) return false;
+
+          claimedStatus[globalIdx] = true;
+          clickCounts[globalIdx] += 1;
+          saveCounts();
+          updateTotalDisplay();
+          renderCurrentTier();
+
+          window.open(offer.link, "_blank");
+          return false;
+        });
+      } else {
+        btn.style.cursor = "not-allowed";
+        btn.onclick = (e) => { e.preventDefault(); return false; };
+      }
+
+      grid.appendChild(btn);
+    });
+  }
+
+  function setActiveTier(tier) {
+    currentTier = tier;
+    document.querySelectorAll(".level-btn").forEach(btn => {
+      if (parseInt(btn.getAttribute("data-level")) === tier) btn.classList.add("active");
+      else btn.classList.remove("active");
+    });
+    document.querySelectorAll(".mobile-tier-btn").forEach(btn => {
+      if (parseInt(btn.getAttribute("data-level")) === tier) btn.classList.add("active");
+      else btn.classList.remove("active");
+    });
+    renderCurrentTier();
+  }
+
+  function resetCounters() {
+    for (let i = 0; i < TOTAL_OFFERS; i++) {
+      clickCounts[i] = 0;
+      claimedStatus[i] = false;
+    }
+    saveCounts();
+    updateTotalDisplay();
+    renderCurrentTier();
+  }
+
+  function buildTriggers() {
+    const desktopContainer = document.getElementById("desktopTriggers");
+    const mobileContainer = document.getElementById("mobileTriggers");
+    desktopContainer.innerHTML = "";
+    mobileContainer.innerHTML = "";
+    for (let i = 1; i <= 34; i++) {
+      const dBtn = document.createElement("div");
+      dBtn.className = "level-btn";
+      dBtn.setAttribute("data-level", i);
+      dBtn.innerHTML = `<i class="fas fa-tag"></i> ${i}`;
+      dBtn.addEventListener("click", () => setActiveTier(i));
+      desktopContainer.appendChild(dBtn);
+      const mBtn = document.createElement("div");
+      mBtn.className = "mobile-tier-btn";
+      mBtn.setAttribute("data-level", i);
+      mBtn.innerHTML = `<i class="fas fa-tag"></i> ${i}`;
+      mBtn.addEventListener("click", () => setActiveTier(i));
+      mobileContainer.appendChild(mBtn);
+    }
+  }
+
+  // Clicking the headline on desktop or mobile smoothly centers the three offer buttons.
+  const headlineButton = document.querySelector(".hero h1");
+  function focusOffersFromHeadline() {
+    document.getElementById("offersGrid").scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
+  headlineButton.addEventListener("click", focusOffersFromHeadline);
+  headlineButton.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      focusOffersFromHeadline();
+    }
+  });
+
+  // The left floating Trigger button always centers the trigger options.
+  // It does not change the selected tier or any offer/click data.
+  document.getElementById("floatingResetBtn").addEventListener("click", () => {
+    const triggerArea = window.matchMedia("(max-width: 850px)").matches
+      ? document.getElementById("mobileTierBar")
+      : document.querySelector(".level-sidebar");
+
+    triggerArea.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  });
+
+  // The right floating Offer button always centers the three offer buttons.
+  // It does not toggle to another action or change any offer/click data.
+  document.getElementById("floatingNavBtn").addEventListener("click", () => {
+    document.getElementById("offersGrid").scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  });
+
+  document.getElementById("resetAllBtn").addEventListener("click", resetCounters);
+  loadCounts();
+  buildTriggers();
+  setActiveTier(1);
+  updateTotalDisplay();
+</script>
+</body>
+</html>
